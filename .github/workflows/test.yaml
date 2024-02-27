@@ -59,7 +59,7 @@ jobs:
 
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
-        if: failure()
+        if: always()
         with:
           payload : |
             {
@@ -68,7 +68,7 @@ jobs:
                     "type": "section",
                     "text": {
                         "type": "mrkdwn",
-                        "text": "🛑 *<https://github.com/${{github.repository}}/actions/runs/${{ github.run_id }}|${{ github.workflow }} workflow run>* failed."
+                        "text": "🛑 *<https://github.com/${{github.repository}}/actions/runs/${{ github.run_id }}|${{ github.workflow }} workflow run>* passed."
                     }
                     }
                 ]
